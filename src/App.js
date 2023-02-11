@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Notfound from "./components/common/Notfound";
 import Navbar from "./components/common/Navbar";
 import HomePage from "./components/pages/Home";
 import Footer from "./components/common/Footer";
@@ -29,6 +30,7 @@ function App() {
       <div className="container mx-auto">
         <div className=" px-3 md:px-0 lg:mx-44">
           <Routes>
+            <Route path="*" element={<Notfound />} />
             <Route path="/" element={<HomePage bright={bright} />} />
             <Route path="/score" element={<ScorePage bright={bright} />} />
             <Route path="/name" element={<NamePage bright={bright} />} />
