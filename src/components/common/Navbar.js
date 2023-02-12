@@ -5,7 +5,7 @@ import { BsMoonStars } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
-function Navbar({ buttonBright, bright }) {
+function Navbar({ toggleMenu, buttonBright, bright, navbar }) {
   const isActive = false;
   return (
     <div className="fixed w-full z-20">
@@ -24,6 +24,7 @@ function Navbar({ buttonBright, bright }) {
                 </span>
               </a>
               <button
+                onClick={toggleMenu}
                 data-collapse-toggle="navbar-default"
                 type="button"
                 className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -47,7 +48,9 @@ function Navbar({ buttonBright, bright }) {
               </button>
 
               <div
-                className="hidden w-full md:block md:w-auto"
+                className={`w-full md:block md:w-auto ${
+                  navbar ? "block" : "hidden"
+                }`}
                 id="navbar-default"
               >
                 <ul

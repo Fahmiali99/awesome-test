@@ -9,7 +9,13 @@ import ScorePage from "./components/pages/Score";
 import NamePage from "./components/pages/Name";
 
 function App() {
+  const [navbar, setNavbar] = useState(false);
   const [bright, setBright] = useState(false);
+
+  function toggleMenu() {
+    setNavbar(!navbar);
+  }
+
   function buttonBright() {
     const newBright = !bright;
     setBright(newBright);
@@ -26,7 +32,12 @@ function App() {
     <div
       className={bright ? " bg-gray-800 text-white" : " bg-gray-100 text-black"}
     >
-      <Navbar buttonBright={buttonBright} bright={bright} />
+      <Navbar
+        toggleMenu={toggleMenu}
+        buttonBright={buttonBright}
+        bright={bright}
+        navbar={navbar}
+      />
       <div className="container mx-auto">
         <div className=" px-3 md:px-0 lg:mx-44">
           <Routes>
